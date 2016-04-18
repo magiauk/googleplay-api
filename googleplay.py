@@ -54,6 +54,9 @@ class GooglePlayAPI(object):
         self.lang = lang
         self.debug = debug
 
+        # ignore InsecureRequestWarning
+        requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
+
     def toDict(self, protoObj):
         """Converts the (protobuf) result from an API call into a dict, for
         easier introspection."""
